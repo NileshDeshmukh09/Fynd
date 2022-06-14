@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Consulting | Learning HTML</title>
+    <style>
+        ul li {
+            display: inline;
+            margin: 10px;
+        }
+
+        span {
+            color: #ff0000
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <nav>
+        <ul>
+            <li> <a href="home.html">Home</a></li>
+            <li> <a href="portfolio.html">Portfolio</a></li>
+            <li> <a href="contact.html">Contact</a></li>
+        </ul>
+
+        <h1>Example Consulting Pvt. Ltd.</h1>
+        <hr>
+    </nav>
+
+    <h2>Contact us </h2>
+    <p>Phone : <a href="#">+001-123-456-7890</a></p>
+    <p>Email : <a href="#">hello@example.com</a></p>
+
+    <h2>Drop a Message</h2>
+    <p> please drop a message by filling out this form, and will get back to you within 2 working days</p>
+    <p>Fields marked with <span>*</span> are required</p>
+
+    <form action="/action_page.php" method="POST">
+
+        <label for="name">Name: <span>*</span> </label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name "><br><br>
+
+        <label for="email">Email: <span>*</span></label><br>
+        <input type="text" id="lname" name="email" placeholder="Enter your Email"><br><br>
+
+        <label for="que">What are you looking for ? <span>*</span> </label><br>
+        <select name="que">
+            <option value="select">&#10003;-- Choose One --</option>
+            <option value="blog">Blog</option>
+            <option value="Online">Online Store</option>
+            <option value="game">Game</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <label>Platforms you plan to Support <span>*</span></label><br>
+        <input type="checkbox"> <label for="">web</label>
+        <input type="checkbox"> <label for="">Mobile</label>
+        <input type="checkbox"> <label for="">Dekstop</label>
+        <br><br>
+
+        <label for="">Message</label><br>
+        <textarea name="msg" id="" cols="30" rows="4"></textarea>
+        <br><br>
+        <input type="submit" value="Reset">
+        <input type="submit" value="Send Message">
+        <br>
+
+    </form>
+    <hr>
+    <p> &#169; example.com</p>
+</body>
+
+</html>
