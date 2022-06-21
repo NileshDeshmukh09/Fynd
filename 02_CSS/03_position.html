@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        .dialog {
+            width : 400px;
+            padding : 2em;
+            border : 6px solid rgb(121, 101, 107);
+            font-size: 1.5em;
+            line-height: 1.25;
+            background-color: rgb(85, 225, 181);
+            color: rgb(59, 51, 51);
+        }
+        h2 {
+            text-align: center;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+        }
+
+        /* scoped Selector */
+        .dialog_close {
+            position: absolute;
+            top: 1px;
+            left: 480px;
+            font-weight: 1000;
+            font-size: 50px;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="dialog">
+        <h2>LOGIN</h2>
+        <hr>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid et dignissimos impedit magnam, officiis nihil sint architecto dolore explicabo ducimus amet distinctio nobis, quia pariatur ad labore id suscipit consectetur ipsam est exercitationem adipisci? Repudiandae ipsa, velit aliquam architecto blanditiis officia quia natus vero dolorem alias numquam. Obcaecati, consequuntur dignissimos.    
+        </p>
+        <hr>
+        <span class="dialog_close">&times;</span>
+
+    </div>
+    
+</body>
+</html>
