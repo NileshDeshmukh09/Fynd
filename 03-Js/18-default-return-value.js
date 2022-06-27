@@ -31,4 +31,5 @@ function xoo( x ,y ){
 
 xoo( 12 ,143) // z = undefinded
 
+// { 0: 12 , 1:13 , 2 : 14, 3:15 , length = 4}
 xoo( 12 ,13 , 14 ,15);
