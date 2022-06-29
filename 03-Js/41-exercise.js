@@ -291,3 +291,11 @@ console.log( numOnline );
 // get the number of inPerson workshops
 const numInPerson = workshops.reduce( ( acc, w ) => acc + ( w.modes.inPerson ? 1 : 0 ), 0 );
 console.log( numInPerson );
+
+workshops.filter(p => p.category == "frontend")
+
+const names =workshops
+        .filter(p => p.category == "frontend")
+        .map( p => p.name).join(",")
+
+
