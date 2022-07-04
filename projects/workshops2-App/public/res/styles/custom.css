@@ -1,0 +1,23 @@
+.workshop-card {
+    margin-right: 30px;
+}
+
+.workshop-card-inner {
+    min-height: 300px;
+}
+
+.padding-medium{
+    padding: 1 em;
+} 
+
+.bg-danger,
+.bg-success {
+    padding : 15px;
+}
+
+.border-medium {
+    border : 1px solid #999;
+    border-radius: 5px;
+    margin: 15px;
+    margin-right: 30px;
+}

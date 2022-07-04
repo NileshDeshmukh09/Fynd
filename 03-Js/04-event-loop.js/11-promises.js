@@ -27,10 +27,24 @@ function sum( x ,y ){
 // Hey Promise object! whenever you get the result please call this function
 
 // Promise is returned immediately - then() , catch() are called immediately
+
 sum( 12 ,13 )
-    .then(( result )=> {
-    console.log('res : ', result);
+    .then(( result1 )=> {
+        console.log('res1 : ', result1);
+
+        return sum( result1 , 'hello');
+
     })
-    .catch( error )=>{
+    .then(( result2 )=> {
+        console.log('res2 : ', result2);
+        return sum(result2 , 14);
+    
+    })
+    .then(( result3 )=> {
+        console.log('res3 : ', result3);
+        return sum(result3 , 14);
+    
+    })
+    .catch(( error )=>{
         console.log(error.message )
-    }
+    });
