@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Vue</title>
+</head>
+<body>
+    <div id="app">
+        Hello {{name }}
+    </div>
+
+    <script type="module">
+        import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.4/vue.esm.browser.min.js'
+
+        /* Create a "Root Instance" */
+
+        /* Root Instance create  in Constructor */
+        new Vue({
+            // take ID/Class Selector , ,to select which part of the body will have to send data !
+            el : '#app', /* What part of the DOM should Vue Manage */
+            data : { // What data should be associated with the DOM
+                name : "Vue JS"
+            }
+        })
+    </script>
+    
+</body>
+</html>
