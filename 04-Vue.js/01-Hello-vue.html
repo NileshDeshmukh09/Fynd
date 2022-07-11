@@ -8,8 +8,13 @@
     <title>Hello Vue</title>
 </head>
 <body>
+    <!-- Arrays , object are stringified and shown by default -->
     <div id="app">
         Hello {{name }}
+        <br>
+        Alternatives : {{ alternatives }}
+        <br>
+        Movies : {{ movies.name }}
     </div>
 
     <script type="module">
@@ -22,7 +27,11 @@
             // take ID/Class Selector , ,to select which part of the body will have to send data !
             el : '#app', /* What part of the DOM should Vue Manage */
             data : { // What data should be associated with the DOM
-                name : "Vue JS"
+                name : "Vue JS",
+                alternatives : [ 'React' , 'Angular'],
+                movies : {
+                    name : "Bhool-Bhulaiya"
+                }
             }
         })
     </script>
