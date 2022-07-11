@@ -9,12 +9,14 @@
 </head>
 <body>
     <!-- Arrays , object are stringified and shown by default -->
+    <!-- {{}} ->  Data Binding -->
     <div id="app">
         Hello {{name }}
         <br>
         Alternatives : {{ alternatives }}
         <br>
         Movies : {{ movies.name }}
+        <button @click ="changeMessage"> Change Greeting</button>
     </div>
 
     <script type="module">
@@ -31,6 +33,11 @@
                 alternatives : [ 'React' , 'Angular'],
                 movies : {
                     name : "Bhool-Bhulaiya"
+                }
+            },
+            methods : {
+                changeMember(){
+                    this.name = this.name +"!";
                 }
             }
         })
