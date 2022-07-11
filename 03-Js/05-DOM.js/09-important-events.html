@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Load events ( links , script , img , videos , audio, window )
+        DOMContentLoaded ( document )
+     -->
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJia5RRJ3mtDjxzxhgBMI9W-akTW9Vg1bfb5tnw7_Ust6pAmfPhrJKA60FSoE-GEZ6wpQ&usqp=CAU" alt="TOM-&-JERRY" >
+
+     <script>
+        document.querySelector('img')
+        .addEventListener('load', function(){
+            console.log("Image has loaded")
+        });
+
+        window.addEventListener('load' , function(){
+            console.log("All Assets has been loaded ")
+        })
+     </script>
+</body>
+</html>

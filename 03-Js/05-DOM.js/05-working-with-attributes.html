@@ -21,9 +21,13 @@
 
         setInterval(
             ()=>{
-                linkEl.textContent = links[idx].text;
-                linkEl.href = links[idx].href ;
-                linkEl.setAttribute('data-description' , links[idx].company); // used to set userDefined Attributes
+                /* Create helper variable when you repeat access to array
+                 * item / object's property
+                */
+                const link = links[idx];
+                linkEl.textContent = link.text;
+                linkEl.href = link.href ;
+                linkEl.setAttribute('data-description' , link.company); // used to set userDefined Attributes
                 idx = ++idx % 3;
             }
         )

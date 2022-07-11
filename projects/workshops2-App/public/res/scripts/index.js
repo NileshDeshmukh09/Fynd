@@ -10,6 +10,7 @@ function fetchWorkshops(){
         })
         .then(data=>{
             workshops = data;
+            console.log("data has been loaded !")
             console.log(data);
             showWorkshops();
         })
@@ -29,8 +30,8 @@ function getWorkshopString( workshop ){
                 <div class="col-xs-8">
                     <h2>${workshop.name}</h2>
                     <div>${workshop.description}</div>
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-primary btn-edit">Edit</button>
+                    <button class="btn btn-danger btn-delete">Delete</button>
                 </div>
                 </div>
             </div>
@@ -131,6 +132,66 @@ function addWorkshop( event ){
     });
 }
 
+function deleteWorkshop(workshopID , workshopCard){
+
+    //some DOM NODES
+    const operationStatusEl = document.querySelector('#operation-status');
+
+    fetch(`https://workshops-server.herokuapp.com/workshops/${workshopID}`,
+        {
+            method : "DELETE",
+        })
+    .then(response => {
+        workshops =  workshops.filter(
+            workshop =>  workshop.id !== workshopID
+            // console.log("wID : ", typeof workshop.id);    
+        );
+        console.log(response)
+        console.log("workshopID :", workshopID);
+        workshopCard.remove(); 
+        
+        // Display the Success Message 
+        operationStatusEl.classList.remove( 'bg-danger' );
+        operationStatusEl.classList.add( 'bg-success' );
+        operationStatusEl.innerHTML = "Workshop has been Deleted "
+        
+    })
+    .catch(error => {
+        // Display the EDIT Message 
+        operationStatusEl.classList.remove( 'bg-success' );
+        operationStatusEl.classList.add( 'bg-danger' );
+        console.log("Workshop throws error");
+        operationStatusEl.innerHTML = error.message;
+        console.log(error);
+
+    });
+}
+
+
+function fillForm(workshopID , workshopCard){
+
+    //Some DOM Nodes
+    const operationStatusEl = document.querySelector( '#operation-status' );
+
+    // Get the details of selected workshop
+    const selectedWorkshop = workshops.find(
+        workshop => workshop.id === workshopID
+    );
+        console.log(selectedWorkshop);
+
+    
+    // Populate the user Inputs
+    document.querySelector('#name').value = selectedWorkshop.name;
+    document.querySelector('#description').value = selectedWorkshop.description;
+    document.querySelector('#startDate').value = selectedWorkshop.startDate;
+    document.querySelector('#endDate').value = selectedWorkshop.endDate; 
+    document.querySelector('#time').value  = selectedWorkshop.time;
+    document.querySelector('#imageUrl').value = selectedWorkshop.imageUrl;
+    document.querySelector('#online').checked = selectedWorkshop.modes.online;
+    document.querySelector('#inPerson').checked = selectedWorkshop.modes.inPerson;
+
+}
+
 // ------------ Setup event handlers on page load ---------
 
 window.addEventListener('load', function(){
@@ -139,3 +200,34 @@ window.addEventListener('load', function(){
 
 const form = document.querySelector('#add-workshop-form');
 form.addEventListener('submit', addWorkshop );
+
+
+
+//Event Delegiation
+document.body.addEventListener('click',
+    function( event ){
+
+        //actual Event that was Clicked
+        const el = event.target;
+        console.log( el );
+        const isDelete = el.classList.contains( 'btn-delete')
+        const isEdit = el.classList.contains( 'btn-edit');
+
+        let workshopCard , workshopID;
+        if( isDelete || isEdit ){
+            workshopCard = el.closest('.workshop-card');
+            workshopID =  parseInt(workshopCard.getAttribute( 'data-id' ));
+            console.log("Workshop-Type : ", typeof workshopID); 
+            console.log("WorkshopID : ",  workshopID);
+        }
+
+        if( isDelete ){
+            deleteWorkshop(workshopID, workshopCard );
+            return;
+        }
+
+        if( isEdit ){
+            fillForm(workshopID, workshopCard );
+            return;
+        }
+    })

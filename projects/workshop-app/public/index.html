@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Workshops App</title>
+        <script src="/js/services/check-auth.js" type="module"></script>
         <link rel="stylesheet" href="/external/normalize.css/normalize.css">
         <link rel="stylesheet" href="/css/utils.css">
         <link rel="stylesheet" href="/css/app.css">
@@ -14,7 +15,7 @@
     <body>
         <nav>
             <ul class="list-unstyled menu container">
-                <li class=" d-lg-none text-right">
+                <li class="d-lg-none text-right">
                     <button id="menu-button">Menu</button>
                 </li>
                 <li class="nav-items nav-items-selected d-sm-none">
@@ -24,7 +25,10 @@
                     <a href="/workshops-list.html" class="link-plain">Workshops List</a>
                 </li>
                 <li class="nav-items d-sm-none">
-                    <a href="" class="link-plain">Add a workshop</a>
+                    <a href="/add-workshop.html" class="link-plain">Add a workshop</a>
+                </li>
+                <li class="nav-items d-sm-none">
+                    <a class="link-plain" id="logout">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -41,6 +45,6 @@
             </p>
         </main>
 
-        <script src="/js/nav.js"></script>
+        <script src="/javaScript/nav.js" type="module"></script>
     </body>
 </html>

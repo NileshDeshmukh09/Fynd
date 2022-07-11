@@ -6,6 +6,7 @@ nav {
 .menu {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     padding: 0.5em 0;
 }
 
@@ -26,5 +27,6 @@ nav {
 @media ( min-width: 600px ) {
     .menu li {
         flex-basis: auto;
+        flex-direction: row;
     }
 }
