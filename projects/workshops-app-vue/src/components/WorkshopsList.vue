@@ -11,9 +11,7 @@
     </div>
     <div v-else-if="status === 'ERROR'">
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>
           {{ error.message }}
-        </strong>
         <button
           type="button"
           class="btn-close"
@@ -23,10 +21,33 @@
       </div>
     </div>
     <div v-else>
-      <div class="row" >
-          <div class="col-12 col-sm-6 col-lg-3" v-for="workshop in workshops" :key="workshop.id">
-              {{ workshop.name }}
+      <h1>List of Workshops
+        <div class="float-end">
+            <button class="btn btn-sm btn-primary me-2" @click="previous">Previous</button>
+            <button class="btn btn-sm btn-primary" @click="next">Next</button>
+        </div>
+      </h1>
+
+      <hr>
+      <div class="row">
+        <div
+          class="col-12 col-sm-6 col-lg-3 d-flex  my-3"
+          v-for="workshop in workshops"
+          :key="workshop.id"
+        >
+          <!-- {{ workshop.name }} -->
+
+          <div class="card p-3">
+            <img :src="workshop.imageUrl" class="card-img-top" :alt="workshop.name" />
+            <div class="card-body">
+              <h5 class="card-title">{{workshop.name}}</h5>
+              <div class="card-text">
+                <div>{{workshop.startDate}} - {{ workshop.endDate }} </div>
+              </div>
+              <a href="#" class="btn btn-primary">View Details</a>
+            </div>
           </div>
+        </div>
       </div>
     </div>
     <!-- WokshopList Works ! -->
@@ -34,7 +55,7 @@
 </template>
 
 <script>
-import { getWorkshops } from "@/services/workshops";
+import { getWorkshopsByPage } from "@/services/workshops";
 
 export default {
   name: "WorkshopsList",
@@ -44,17 +65,33 @@ export default {
       status: "LOADED",
       workshops: [],
       error: null,
+      page : 1
     };
   },
-  async created() {
-    try {
-      this.workshops = await getWorkshops();
-      this.status = "LOADED";
-    } catch (error) {
-      console.log(error);
-      this.status = "ERROR";
-      this.error = error;
+  methods:{
+    async fetchWorkshops(){
+      try {
+        this.workshops = await getWorkshopsByPage( this.page );
+        this.status = "LOADED";
+      } catch (error) {
+        console.log(error);
+        this.status = "ERROR";
+        this.error = error;
+      }
+    },
+    previous(){
+      if( this.page !== 1 ){
+        this.page = this.page-1;
+        this.fetchWorkshops();
+      }
+    },
+    next(){
+      this.page = this.page+1;
+      this.fetchWorkshops(); 
     }
+  },
+  async created() {
+    this.fetchWorkshops();
   },
 };
 </script>
