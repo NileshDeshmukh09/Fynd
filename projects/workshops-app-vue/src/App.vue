@@ -1,7 +1,7 @@
 <template>
   <div >  
     <AppMenu />
-    <div class="container my-5 bg-info">
+    <div class="container my-5 ">
       <router-view></router-view>
     </div>
   </div>
