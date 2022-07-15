@@ -24,4 +24,4 @@ pnpm-debug.log*
 
 # Node module
 
-node_modules/
+node_modules/ 
