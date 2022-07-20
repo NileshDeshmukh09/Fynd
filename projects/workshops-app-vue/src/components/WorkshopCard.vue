@@ -19,6 +19,17 @@ export default {
             type : Object ,
             required : true
         }
+    },
+    methods : {
+      formatDate( isoDateStr , format = "standard"){
+        switch( format ){
+          case "standard" : 
+              const date = new Date( isoDateStr )
+              date.getMonth
+
+          
+        }
+      }
     }
 };
 </script>
