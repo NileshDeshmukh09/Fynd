@@ -4,7 +4,14 @@
     <div class="card-body">
       <h5 class="card-title">{{ workshop.name }}</h5>
       <div class="card-text">
-        <div>{{ workshop.startDate }} - {{ workshop.endDate }}</div>
+      <!-- While using mixins -->
+
+      <!-- 
+        <div>{{ formatDate(workshop.startDate , dateFormat) }} - {{formatDate( workshop.endDate , dateFormat )}}</div>
+      -->
+
+      <div>{{ workshop.startDate | formatDate( format ) }} - {{ workshop.endDate | formatDate( format ) }} </div>
+       
       </div>
       <a href="#" class="btn btn-primary">View Details</a>
     </div>
@@ -12,25 +19,25 @@
 </template>
 
 <script>
+// import { formatDate } from '@/mixins/formatDate';
+import formatDateMixin from '@/mixins/formatDate';
+
 export default {
     name : "WorkshopCard",
+    date(){
+      return {
+        format : 'indian',     
+      }
+    },
     props : {
         workshop : {
             type : Object ,
             required : true
         }
     },
-    methods : {
-      formatDate( isoDateStr , format = "standard"){
-        switch( format ){
-          case "standard" : 
-              const date = new Date( isoDateStr )
-              date.getMonth
 
-          
-        }
-      }
-    }
+    mixins : [ formatDateMixin ]
+    
 };
 </script>
 
