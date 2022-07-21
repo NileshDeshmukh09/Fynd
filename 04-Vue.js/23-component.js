@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -15,9 +15,7 @@
 
        { /*  Component is a small peice of UI */}
         const panelHeading = {
-            template : `
-            <div>
-            </div>`
+            
         }
     </script>
 </body>
