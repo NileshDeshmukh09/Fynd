@@ -10,7 +10,7 @@
         <div>{{ formatDate(workshop.startDate , dateFormat) }} - {{formatDate( workshop.endDate , dateFormat )}}</div>
       -->
 
-      <div>{{ workshop.startDate | formatDate( format ) }} - {{ workshop.endDate | formatDate( format ) }} </div>
+      <div>{{ workshop.startDate | formatDate( 'indian' ) }} - {{ workshop.endDate | formatDate( format ) }} </div>
        
       </div>
       <a href="#" class="btn btn-primary">View Details</a>
