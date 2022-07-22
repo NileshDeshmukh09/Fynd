@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app"></div>
+
+    </body>
+
+    <script type="module">
+        import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.4/vue.esm.browser.min.js';
+
+        {/* // create a "root instance" */ }
+
+        new Vue({
+                el: '#app',
+                data: {
+                    cities: [
+                        'Chennai',
+                        'Mumbai',
+                        'Patna',
+                        'Kolkata'
+                    ],
+                    newCity: '',
+                    // selectedCity: 'Chennai'
+                    selectedCityIdx: 0,
+                    emails :[ ],
+                    newEmail : '',
+                },
+                methods: {
+                    addCity() {
+                        this.cities.unshift( this.newCity );
+                    },
+                    removeCity() {
+                        // const idx = this.cities.indexOf( this.selectedCity );
+                        // console.log( idx );
+
+                        console.log( this.selectedCityIdx );
+                        this.cities.splice( this.selectedCityIdx, 1 );
+                    },
+
+                    addEmail(){
+                        let name =  this.newEmail.split(",")
+                        console.log(this.newEmail.split(","))
+                        this.emails.unshift( this.newEmail );
+                        console.log("Email : " , emails);
+                    }
+                },
+                template: `
+                    <div>
+                        
+                        <h2>Add new city</h2>
+                        <input type="text" v-model="newCity" />
+                        <button @click="addCity">Add city</button>
+                        <h2>List of cities</h2>
+                        <ol>
+                            <li v-for="city in cities" :key="city">{{city}}</li>
+                        </ol>
+                        <!-- <select v-model="selectedCity"> -->
+                        <select v-model="selectedCityIdx">
+                            <option value="">-- Select a city --</option>
+                            <!--
+                                <option v-for="( city ) in cities" :value="city" :key="city">{{city}}</option>
+                            -->
+                            <option v-for="( city, idx ) in cities" :value="idx" :key="city">{{city}}</option>
+                        </select>
+                        <button @click="removeCity">Remove city</button>
+
+                        <h2>Add new city</h2>
+                        <input type="email" v-model="newEmail" />
+                        <button @click="addEmail">Add Email</button>
+
+                        <h2>List of Emails</h2>
+                       <div>
+                       <div/>
+
+
+
+                        <ol>
+                            <li v-for="email in emails" :key="email">{{email}}</li>
+                        </ol>
+                    </div>
+                `
+            });
+
+
+    </script>
+
+    </html>
