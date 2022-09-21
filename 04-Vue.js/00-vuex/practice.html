@@ -38,18 +38,13 @@
                         this.cities.unshift( this.newCity );
                     },
                     removeCity() {
-                        // const idx = this.cities.indexOf( this.selectedCity );
-                        // console.log( idx );
 
                         console.log( this.selectedCityIdx );
                         this.cities.splice( this.selectedCityIdx, 1 );
                     },
 
                     addEmail(){
-                        let name =  this.newEmail.split(",")
-                        console.log(this.newEmail.split(","))
-                        this.emails.unshift( this.newEmail );
-                        console.log("Email : " , emails);
+                         this.emails =  this.newEmail.split(",") ;  
                     }
                 },
                 template: `
@@ -73,15 +68,14 @@
                         <button @click="removeCity">Remove city</button>
 
                         <h2>Add new city</h2>
+
+                        
                         <input type="email" v-model="newEmail" />
                         <button @click="addEmail">Add Email</button>
 
                         <h2>List of Emails</h2>
                        <div>
                        <div/>
-
-
-
                         <ol>
                             <li v-for="email in emails" :key="email">{{email}}</li>
                         </ol>

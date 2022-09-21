@@ -41,7 +41,9 @@
             </div>
 
             <div class="teams">
-                <i class="fa-solid fa-plus set-icon"></i>
+                   <div class="addteam">
+                    +
+                   </div> 
             </div>
         </div>
     </main>
@@ -55,6 +57,13 @@ export default {
 </script>
 
 <style scoped>
+.addteam {
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+    font-weight: 900;
+    font-size: 3em;
+}
 .teams-section {
     display: flex;
     flex-direction: row;

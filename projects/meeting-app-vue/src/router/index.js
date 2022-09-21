@@ -16,6 +16,18 @@ const router = new Router({
             name :'meetings-page',
             path: '/meetings',
             component : MeetingsPage,
+            // children: [
+            //     {
+            //         name: 'filter-search-meet',
+            //         path: '', // whatever comes after parent route (here nothing)
+            //         component: FilterMeet
+            //     },
+            //     {
+            //         name: 'add-meeting',
+            //         path: 'add', // whatever comes after parent route (here nothing)
+            //         component: AddMeeting
+            //     }
+            // ]
         },
         {
             name :'teams-page',
